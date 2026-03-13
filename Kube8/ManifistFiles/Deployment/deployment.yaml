@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+ name: app-01
+spec:
+ replicas: 4
+ selector:
+  matchLabels:
+   app: demo-0
+ template:
+  metadata:
+   name: tmp-0
+   labels:
+    app: demo-0
+  spec:
+   containers:
+   - name: andy-app
+     image: nginx:latest
+     ports:
+     - containerPort: 80
